@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+<div class="table-responsive">
+    <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th>Employee ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
+            <th>DOB</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="!showEdit" >
+            <td>{{empObj.employeeId}}</td>
+            <td>{{empObj.firstName}}</td>
+            <td>{{empObj.lastName}}</td>
+            <td>{{empObj.salary}}</td>
+            <td>{{empObj.dob}}</td>
+            <td>{{empObj.email}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="EditEmp()">Edit</button>
+            </td>
+          </tr>
+          <tr *ngIf="showEdit" >
+            <td> <input type="number" [(ngModel)]="empObj.employeeId" /></td>
+            <td><input type="text" [(ngModel)]="empObj.firstName" name="firstName" /></td>
+            <td><input type="text" [(ngModel)]="empObj.lastName" name="lastName" /></td>
+            <td><input type="number" [(ngModel)]="empObj.salary" name="salary" /></td>
+            <td><input type="date" [(ngModel)]="empObj.dob" name="dob" /></td>
+            <td><input type="email" [(ngModel)]="empObj.email" name="email" /></td>
+            <td>
+                <button class="btn btn-primary" (click)="UpdateEmp()">Update</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>
